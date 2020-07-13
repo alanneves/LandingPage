@@ -7,40 +7,48 @@ Dark green: #28b485
 
 */
 
-*{
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Diz que a 'borda' também conta no tamanho da box */
+  box-sizing: inherit;
 }
 
-html{
+html {
   font-size: 62.5%;
   /** Fiz isso para podermos usar rem no arquivo referenciando 10px nao 16px **/
 }
-body{
+
+body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 1.7;
   color: #777;
   padding: 3rem;
+  box-sizing: border-box;
+  /* Diz que a 'borda' também conta no tamanho da box */
 }
 
-.header{
-  height: 95vh; /* Diz que a altura da div será 95% da tela do usuário */
-  background-image: linear-gradient(to right bottom,rgba(126,213,111,0.8), rgba(40,180,131,0.8)), url(../img/hero.jpg);
+.header {
+  height: 95vh;
+  /* Diz que a altura da div será 95% da tela do usuário */
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 131, 0.8)), url(../img/hero.jpg);
   /*
     Aqui está fazendo um gradient que vai de uma cor para outra e isso vai fizer um pouco transparente, por causa do 0.8 do rgba.
   */
-  background-size: cover; /* Cover vai redimensionar a menor proporção para ficar legal, eu acho que vou ter que ir testando no site para ver qual fica melhor! */
-  background-position: top; /* Quando você for diminuir a aba, essa propriedade fiz qual lado tem preferencia de aparecer */
+  background-size: cover;
+  /* Cover vai redimensionar a menor proporção para ficar legal, eu acho que vou ter que ir testando no site para ver qual fica melhor! */
+  background-position: top;
+  /* Quando você for diminuir a aba, essa propriedade fiz qual lado tem preferencia de aparecer */
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   /* Isso vai fazer a imagem ficar cortada, os valores ali são as partes visíveis, sempre usar o primeiro como ponto de referencia para os outros */
   position: relative;
 }
 
-.logo-box{
-  position: absolute; 
+.header__logo-box {
+  position: absolute;
   /* Aparentement o position absolute funciona da seguinte forma:
     Eu coloco ele na div que quero mover e seto a posição com left, top, bottom e right,
     mas preciso colocar position relative na div pai que eu quero usar como referencia.
@@ -49,11 +57,12 @@ body{
   left: 4rem;
 }
 
-.logo{
-  height: 3.5rem; /* Eu posso usar só o height/width que o outro ja faz sozinho*/
+.header__logo {
+  height: 3.5rem;
+  /* Eu posso usar só o height/width que o outro ja faz sozinho*/
 }
 
-.text-box{
+.header__text-box {
   position: absolute;
   top: 40%;
   left: 50%;
@@ -61,14 +70,15 @@ body{
   /* Isso faz com que o elemento fique centralizado */
   text-align: center;
 }
-.heading-primary{
+
+.heading-primary {
   color: #fff;
   text-transform: uppercase;
   backface-visibility: hidden;
   margin-bottom: 6rem;
 }
 
-.heading-primary-main{
+.heading-primary--main {
   display: block;
   font-size: 6rem;
   font-weight: 400;
@@ -84,7 +94,7 @@ body{
   */
 }
 
-.heading-primary-sub{
+.heading-primary--sub {
   display: block;
   font-size: 2rem;
   font-weight: 700;
@@ -93,40 +103,40 @@ body{
   animation: moveInRight 1s ease-out;
 }
 
-@keyframes moveInLeft{
-  0%{
+@keyframes moveInLeft {
+  0% {
     opacity: 0;
     transform: translateX(-10rem);
   }
 
-  80%{
+  80% {
     transform: translateX(1rem);
   }
 
-  100%{
+  100% {
     opacity: 1;
     transform: translate(0);
   }
 }
 
-@keyframes moveInRight{
-  0%{
+@keyframes moveInRight {
+  0% {
     opacity: 0;
     transform: translateX(10rem);
   }
 
-  80%{
+  80% {
     transform: translateX(-1rem);
   }
 
-  100%{
+  100% {
     opacity: 1;
     transform: translate(0);
   }
 }
 
 .btn:link,
-.btn:visited{
+.btn:visited {
   text-transform: uppercase;
   text-decoration: none;
   padding: 1.5rem 4rem;
@@ -135,33 +145,33 @@ body{
   transition: all .2s;
 }
 
-.btn:hover{
+.btn:hover {
   transform: translateY(-0.3rem);
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
-.btn:active{
+.btn:active {
   transform: translateY(-0.1rem);
   box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
 }
 
-.btn-white{
+.btn--white {
   background-color: #fff;
   color: #777;
   animation: moveInBottom 1s ease-out;
 }
 
-@keyframes moveInBottom{
-  0%{
+@keyframes moveInBottom {
+  0% {
     opacity: 0;
     transform: translatey(10rem);
   }
 
-  80%{
+  80% {
     transform: translatey(-1rem);
   }
 
-  100%{
+  100% {
     opacity: 1;
     transform: translate(0);
   }
